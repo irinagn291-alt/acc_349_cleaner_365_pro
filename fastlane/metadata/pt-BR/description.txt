@@ -1,0 +1,11 @@
+O Cleaner 365 ajuda você a revisar fotos e vídeos, reunir itens para exclusão e guardar cópias privadas de fotos em um cofre. Também oferece ferramentas de segurança para senhas e e-mails.
+
+• Revise fotos por mês, em grupos de 20, com as opções “Enviar para a lixeira”, “Manter” e “Desfazer gesto”.
+• Experimente o “Modo de prática” com três cartões de exemplo, sem acessar o Fotos.
+• Explore “Duplicatas exatas”, “Capturas de tela”, “Gravações de tela” e “Vídeos grandes”.
+• Use “Revisar lixeira” para visualizar, manter ou confirmar a exclusão dos itens reunidos.
+• Guarde cópias verificadas de fotos e Live Photos no “Cofre” protegido pelo Face ID e restaure cópias no Fotos.
+• Use “Gerador de senhas”, “Aliases de e-mail”, “Verificação de vazamento de e-mail” e “Verificação de vazamento de senha”.
+• Acompanhe seu progresso com os lembretes de “Revisão mensal”, o widget “Progresso da temporada” e o app complementar para Apple Watch.
+
+Nada é removido do Fotos até você confirmar a exclusão.

@@ -1,0 +1,346 @@
+---
+format_version: "23"
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+app:
+  envs:
+  - GF_PROJECT_PATH: "Cleaner365.xcodeproj"
+    opts:
+      is_expand: false
+  - GF_SCHEME: "Cleaner365"
+    opts:
+      is_expand: false
+  - BITRISE_DISTRIBUTION_METHOD: app-store
+    opts:
+      is_expand: false
+workflows:
+  archive_and_export_app:
+    summary: Archive the iOS app and upload the IPA to App Store Connect.
+    description: Clone, install CocoaPods only when a Podfile exists, sign, archive,
+      and send the IPA with Application Loader.
+    steps:
+    - git-clone@8: {}
+    - script@1:
+        title: Git LFS pull
+        inputs:
+        - content: |
+            #!/bin/bash
+            set -euo pipefail
+            if [[ -f .gitattributes ]] && command -v git-lfs >/dev/null 2>&1; then
+              git lfs install
+              git lfs pull
+            fi
+    - script@1:
+        title: CocoaPods install
+        inputs:
+        - content: |
+            #!/bin/bash
+            set -euo pipefail
+            cd "$BITRISE_SOURCE_DIR"
+            if [ ! -f Podfile ]; then
+              echo "No Podfile — skipping CocoaPods"
+              exit 0
+            fi
+            pod install --repo-update
+            if [ -d Il2CppOutputProject ]; then
+              test -f "Pods/Target Support Files/Pods-UnityFramework/Pods-UnityFramework.release.xcconfig"
+            fi
+    - script@1:
+        title: Prepare ASC key (.p8), modern .p12, relax pbxproj signing for App Store archive
+        inputs:
+        - content: |
+            #!/bin/bash
+            set -euo pipefail
+            defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES || true
+            defaults write com.apple.dt.Xcode IDESkipPackagePluginFingerprintValidatation -bool YES || true
+            mkdir -p "$HOME/Library/org.swift.swiftpm/security"
+            if [ -f "$BITRISE_SOURCE_DIR/ci_scripts/macros.json" ]; then
+              cp -f "$BITRISE_SOURCE_DIR/ci_scripts/macros.json" "$HOME/Library/org.swift.swiftpm/security/macros.json"
+            fi
+            echo "$ASC_API_KEY_CONTENT" | base64 -d > "$BITRISE_SOURCE_DIR/AuthKey_${ASC_KEY_ID}.p8"
+            ENC_P12="$BITRISE_SOURCE_DIR/gf_import.p12"
+            STEP_P12="$BITRISE_SOURCE_DIR/gf_step.p12"
+            PEM_TMP="$BITRISE_SOURCE_DIR/gf_tmp.pem"
+            echo "$P12_CONTENT_B64" | base64 -d > "$ENC_P12"
+            _to_pem() {
+              openssl pkcs12 "$@" -in "$ENC_P12" -nodes -passin "pass:${P12_PASSWORD}" -out "$PEM_TMP"
+            }
+            if _to_pem 2>/dev/null || _to_pem -legacy; then
+              openssl pkcs12 -export -in "$PEM_TMP" -out "$STEP_P12" -passout "pass:${P12_PASSWORD}"
+              rm -f "$PEM_TMP" "$ENC_P12"
+            else
+              echo "OpenSSL: failed to read .p12 (check P12_PASSWORD and file)" >&2
+              rm -f "$PEM_TMP" "$ENC_P12"
+              exit 1
+            fi
+            if [ -z "${APPLE_TEAM_ID:-}" ]; then
+              echo "APPLE_TEAM_ID is empty" >&2
+              exit 1
+            fi
+            mkdir -p "$BITRISE_SOURCE_DIR/ci_scripts"
+            cat > "$BITRISE_SOURCE_DIR/ci_scripts/relax-signing.pl" <<'PL'
+            use strict;
+            use warnings;
+
+            local $/;
+            my $text = <>;
+            my $team = $ENV{APPLE_TEAM_ID} // "";
+            die "APPLE_TEAM_ID is empty or not a team id\n" unless $team =~ /^[A-Za-z0-9]+$/;
+
+            # Quoted keys ("CODE_SIGN_IDENTITY[sdk=iphoneos*]") are what Unity writes.
+            # An unquoted pattern leaves "iPhone Developer" on the project and GameAssembly inherits it.
+            $text =~ s/^([ \t]*"?CODE_SIGN_IDENTITY(?:\[[^\]]+\])?"?[ \t]*=[ \t]*)(?:"iPhone Developer"|"Apple Development"|iPhone Developer|Apple Development);/${1}"";/mg;
+
+            sub balanced {
+                my ($text, $open_at) = @_;
+                my $depth = 0;
+                my $i = $open_at;
+                my $n = length($text);
+                while ($i < $n) {
+                    my $c = substr($text, $i, 1);
+                    if ($c eq "{") {
+                        $depth++;
+                    } elsif ($c eq "}") {
+                        $depth--;
+                        if ($depth == 0) {
+                            return ($i, substr($text, $open_at + 1, $i - $open_at - 1));
+                        }
+                    } elsif ($c eq "/" && $i + 1 < $n && substr($text, $i, 2) eq "/*") {
+                        my $end = index($text, "*/", $i + 2);
+                        $i = $end < 0 ? $n : $end + 1;
+                    } elsif ($c eq '"') {
+                        $i++;
+                        while ($i < $n) {
+                            my $ch = substr($text, $i, 1);
+                            if ($ch eq "\\") { $i += 2; next; }
+                            last if $ch eq '"';
+                            $i++;
+                        }
+                    }
+                    $i++;
+                }
+                return (-1, "");
+            }
+
+            my @objects;
+            while ($text =~ /([A-Fa-f0-9]{24}) \/\* [^*]*\*\/ = \{/g) {
+                my $id = $1;
+                my $open = pos($text) - 1;
+                my ($close, $body) = balanced($text, $open);
+                if ($close < 0) {
+                    pos($text) = $open + 1;
+                    next;
+                }
+                push @objects, [ $id, $open, $close, $body ];
+                pos($text) = $close + 1;
+            }
+
+            my %sign_list;
+            for my $obj (@objects) {
+                my ($id, undef, undef, $body) = @$obj;
+                next unless $body =~ /isa = PBXNativeTarget;/;
+                my ($list) = $body =~ /buildConfigurationList = ([A-Fa-f0-9]{24})/;
+                next unless $list;
+                my ($type) = $body =~ /productType = "([^"]+)";/;
+                $type //= "";
+                my $sign = (
+                    $type eq "com.apple.product-type.application"
+                    || $type eq "com.apple.product-type.app-extension"
+                ) ? 1 : 0;
+                $sign_list{$list} = $sign;
+            }
+
+            my %sign_config;
+            for my $obj (@objects) {
+                my ($id, undef, undef, $body) = @$obj;
+                next unless $body =~ /isa = XCConfigurationList;/;
+                next unless exists $sign_list{$id};
+                my $sign = $sign_list{$id};
+                while ($body =~ /([A-Fa-f0-9]{24}) \/\*/g) {
+                    $sign_config{$1} = $sign;
+                }
+            }
+
+            sub upsert_line {
+                my ($settings, $key, $value) = @_;
+                my $quoted = quotemeta($key);
+                if ($settings =~ /^([ \t]*)"?$quoted"?[ \t]*=[ \t]*.*;/m) {
+                    my $indent = $1;
+                    $settings =~ s/^([ \t]*)"?$quoted"?[ \t]*=[ \t]*.*;/${indent}${key} = ${value};/m;
+                } else {
+                    my ($indent) = $settings =~ /^([ \t]+)[A-Z][A-Z0-9_]+[ \t]*=/m;
+                    $indent = "\t\t\t\t" unless $indent;
+                    $settings =~ s/(buildSettings = \{\n)/$1${indent}${key} = ${value};\n/
+                        unless $settings =~ /buildSettings = \{[ \t]*\}/;
+                    if ($settings =~ /buildSettings = \{[ \t]*\}/) {
+                        $settings =~ s/buildSettings = \{[ \t]*\}/buildSettings = {\n${indent}${key} = ${value};\n${indent}};/;
+                    }
+                }
+                return $settings;
+            }
+
+            sub patch_settings {
+                my ($body, $sign, $team) = @_;
+                if ($sign) {
+                    $body = upsert_line($body, "CODE_SIGNING_ALLOWED", "YES");
+                    $body = upsert_line($body, "CODE_SIGNING_REQUIRED", "YES");
+                    $body = upsert_line($body, "DEVELOPMENT_TEAM", $team);
+                    $body =~ s/^([ \t]*)PROVISIONING_PROFILE[ \t]*=[ \t]*"\$\(PROVISIONING_PROFILE_APP\)";/${1}PROVISIONING_PROFILE = "";/mg;
+                    $body =~ s/^([ \t]*)PROVISIONING_PROFILE_SPECIFIER[ \t]*=[ \t]*"\$\(PROVISIONING_PROFILE_SPECIFIER_APP\)";/${1}PROVISIONING_PROFILE_SPECIFIER = "";/mg;
+                } else {
+                    $body = upsert_line($body, "CODE_SIGNING_ALLOWED", "NO");
+                    $body = upsert_line($body, "CODE_SIGNING_REQUIRED", "NO");
+                    $body = upsert_line($body, "CODE_SIGN_IDENTITY", '""');
+                    $body = upsert_line($body, "DEVELOPMENT_TEAM", '""');
+                }
+                return $body;
+            }
+
+            my @edits;
+            for my $obj (@objects) {
+                my ($id, $open, $close, $body) = @$obj;
+                next unless exists $sign_config{$id};
+                next unless $body =~ /isa = XCBuildConfiguration;/;
+                my $patched = patch_settings($body, $sign_config{$id}, $team);
+                next if $patched eq $body;
+                push @edits, [ $open + 1, $close, $patched ];
+            }
+            for my $edit (sort { $b->[0] <=> $a->[0] } @edits) {
+                substr($text, $edit->[0], $edit->[1] - $edit->[0], $edit->[2]);
+            }
+            print $text;
+            PL
+            find "$BITRISE_SOURCE_DIR" -name project.pbxproj -print0 | while IFS= read -r -d '' PBX; do
+              echo "Relax code signing identity in $PBX"
+              perl -i "$BITRISE_SOURCE_DIR/ci_scripts/relax-signing.pl" "$PBX"
+            done
+    - manage-ios-code-signing@2:
+        inputs:
+        - apple_service_connection: api-key
+        - distribution_method: app-store
+        - project_path: "Cleaner365.xcodeproj"
+        - scheme: "$GF_SCHEME"
+        - register_test_devices: "no"
+        - apple_team_id: "$APPLE_TEAM_ID"
+        - certificate_url_list: file://$BITRISE_SOURCE_DIR/gf_step.p12
+        - passphrase_list: $P12_PASSWORD
+        - api_key_path: "$BITRISE_SOURCE_DIR/AuthKey_${ASC_KEY_ID}.p8"
+        - api_key_id: "$ASC_KEY_ID"
+        - api_key_issuer_id: "$ASC_ISSUER_ID"
+    - script@1:
+        title: Keep Unity engine targets unsigned
+        inputs:
+        - content: |
+            #!/bin/bash
+            set -euo pipefail
+            RELAX="$BITRISE_SOURCE_DIR/ci_scripts/relax-signing.pl"
+            if [ ! -f "$RELAX" ]; then
+              echo "No relax-signing.pl — nothing to reapply"
+              exit 0
+            fi
+            # manage-ios-code-signing rewrites the app target. Reapply so GameAssembly
+            # and UnityFramework stay unsigned; -xcconfig no longer forces signing on.
+            find "$BITRISE_SOURCE_DIR" -name project.pbxproj -print0 | while IFS= read -r -d '' PBX; do
+              echo "Reapply code signing in $PBX"
+              perl -i "$RELAX" "$PBX"
+            done
+    - xcode-archive@5:
+        inputs:
+        - project_path: "Cleaner365.xcodeproj"
+        - scheme: "$GF_SCHEME"
+        - distribution_method: "$BITRISE_DISTRIBUTION_METHOD"
+        - automatic_code_signing: api-key
+        - certificate_url_list: file://$BITRISE_SOURCE_DIR/gf_step.p12
+        - passphrase_list: $P12_PASSWORD
+        - api_key_path: "$BITRISE_SOURCE_DIR/AuthKey_${ASC_KEY_ID}.p8"
+        - api_key_id: "$ASC_KEY_ID"
+        - api_key_issuer_id: "$ASC_ISSUER_ID"
+        - export_development_team: "$APPLE_TEAM_ID"
+        - xcodebuild_options: "-skipMacroValidation -skipPackagePluginValidation"
+        - xcconfig_content: |-
+            COMPILER_INDEX_STORE_ENABLE = NO
+        - cache_level: none
+    - deploy-to-itunesconnect-application-loader@2:
+        inputs:
+        - connection: "off"
+        - ipa_path: "$BITRISE_IPA_PATH"
+        - api_key_path: "file://$BITRISE_SOURCE_DIR/AuthKey_${ASC_KEY_ID}.p8"
+        - api_issuer: "$ASC_ISSUER_ID"
+        - bundle_id: "$APP_BUNDLE_ID"
+    - deploy-to-bitrise-io@2: {}
+  deliver_metadata:
+    summary: Upload App Store metadata and screenshots. Does not submit.
+    description: Reads fastlane/metadata from the repository and sends it to
+      App Store Connect. The factory waits for ingest and drops duplicate
+      screenshots. Submit for review happens in the developer session, so
+      Submissions shows that person rather than the API key. The binary is
+      uploaded by archive_and_export_app.
+    steps:
+    - git-clone@8: {}
+    - script@1:
+        title: Check metadata is present
+        inputs:
+        - content: |
+            #!/bin/bash
+            set -euo pipefail
+            cd "$BITRISE_SOURCE_DIR"
+
+            if [ ! -d fastlane/metadata ]; then
+              echo "No fastlane/metadata in the repository — run 'gf metadata generate' first." >&2
+              exit 1
+            fi
+
+            echo "Metadata files:"
+            find fastlane/metadata -type f -name '*.txt' | sort
+
+            if [ ! -f fastlane/Deliverfile ]; then
+              echo "No fastlane/Deliverfile — run 'gf delivery install' first." >&2
+              exit 1
+            fi
+
+            # Name is set when the record is created (Pro / Ultra / … if taken).
+            # Posting name.txt makes Apple add a localization and reject a name
+            # that is already on this app or another one.
+            find fastlane/metadata -name name.txt -delete
+            echo "Dropped name.txt so deliver will not post a listing name."
+
+            # App Review notes go out only from Process 2.1, through the API.
+            # A normal release must not post them.
+            find fastlane/metadata -path '*/review_information/notes.txt' -delete
+            echo "Dropped App Review notes so deliver will not post them."
+
+            PHONE="fastlane/metadata/review_information/phone_number.txt"
+            if [ ! -f "$PHONE" ]; then
+              echo "No App Review phone. phone_number.txt is missing — paste an E.164 number and re-run deliver." >&2
+              exit 1
+            fi
+            NUM="$(tr -d '[:space:]' < "$PHONE")"
+            if ! echo "$NUM" | grep -Eq '^\+[0-9]{8,15}$'; then
+              echo "Review phone must be E.164, e.g. +14155551234. Got: ${NUM:-empty}" >&2
+              exit 1
+            fi
+    - script@1:
+        title: fastlane deliver
+        inputs:
+        - content: |
+            #!/bin/bash
+            set -euo pipefail
+            cd "$BITRISE_SOURCE_DIR"
+
+            export APP_BUNDLE_ID ASC_KEY_ID ASC_ISSUER_ID ASC_API_KEY_CONTENT
+
+            if ! command -v fastlane >/dev/null 2>&1; then
+              gem install fastlane --no-document
+            fi
+
+            # Deliverfile loads patch_deliver_screenshots.rb (fastlane#30094 /
+            # PR 30150): wait for checksums, delete incomplete rows before retry.
+            # Do not post-process via Spaceship — those calls abort the build
+            # and Grok then "repairs" the wrong API names.
+            # Submit is not done here. An API key is recorded as "API user".
+            fastlane deliver --verbose --submit_for_review false
+    - deploy-to-bitrise-io@2: {}
+meta:
+  bitrise.io:
+    stack: osx-xcode-26.6.x
+    machine_type_id: g2.mac.large

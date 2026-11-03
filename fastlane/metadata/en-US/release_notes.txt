@@ -1,0 +1,1 @@
+Initial release of Cleaner 365, with monthly photo review, cleanup collections, “Review bin”, “Vault”, security tools, reminders, a widget, and an Apple Watch companion.

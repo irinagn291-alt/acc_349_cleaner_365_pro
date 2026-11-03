@@ -1,0 +1,11 @@
+Photos access is requested through “Open my photos”, “Choose photos”, or “Add from Photos”. Its usage description is “Review photos and videos. You choose which originals to delete from Photos.” Add to Photos access is requested when restoring a vault item, with “Restore selected photos and Live Photos from your vault.” Face ID is requested when unlocking the vault, with “Use Face ID to open your private photo vault.” Notification permission may be requested when enabling “Monthly review”; there is no separate usage-description string.
+
+The native app has no login, in-app purchase, account deletion flow, or App Tracking Transparency prompt. Photos and Live Photos selected for review or the vault are user-generated content.
+
+Cleaner 365 helps people review photos and videos, collect items for deletion, and keep private photo copies in a vault. It also offers password and email security tools for people managing sign-ins and checking for exposed credentials.
+
+From a cold launch, wait for the loading screen and open “Today”. Tap “Try three practice cards” to enter “Practice” without photo access, or tap “Open my photos” to grant access. With photos available, tap “Start round” or select a month under “Months”; use “To bin”, “Keep”, “Undo swipe”, and “Review bin”. From “Today”, tap “Cleanup” to open its four collections and queue a selection. Tap “Vault”, then “Unlock with Face ID” and “Add from Photos” to use the vault. Tap “Security” to open “Password generator”, “Email aliases”, “Email breach check”, or “Password breach check”. Tap “Reminders” to find “Monthly review”. No credentials or demo account are needed to review the app; “Email aliases” requires a separate SimpleLogin account and a “Personal API key”.
+
+Review decisions and vault copies stay on the device; the watch and widget receive review progress, iCloud Photos deletion can sync across devices, security checks send an email address or a partial password hash to Have I Been Pwned, and alias operations use SimpleLogin.
+
+The native interface uses English and formats dates and numbers for the United States; reminders use local time. The brief does not identify any licence or regulated-industry paperwork. The app shows no health, medical, or product-health information and gives no such recommendations.

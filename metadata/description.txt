@@ -1,0 +1,11 @@
+Cleaner 365 helps people review photos and videos, collect items for deletion, and keep private photo copies in a vault. It also offers password and email security tools.
+
+• Review photos by month in rounds of 20 with “To bin”, “Keep”, and “Undo swipe”.
+• Try “Practice” with three sample cards without accessing Photos.
+• Explore “Exact duplicates”, “Screenshots”, “Screen recordings”, and “Large videos”.
+• Use “Review bin” to preview, keep, or confirm deletion of queued items.
+• Keep verified copies of photos and Live Photos in the Face ID-protected “Vault” and restore copies to Photos.
+• Use “Password generator”, “Email aliases”, “Email breach check”, and “Password breach check”.
+• Follow progress with “Monthly review” reminders, the “Season progress” widget, and the Apple Watch companion.
+
+Nothing leaves Photos until you confirm deletion.

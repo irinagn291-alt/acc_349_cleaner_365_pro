@@ -1,0 +1,14 @@
+{
+  "originHash" : "ca4c7918ab85bf3e3b33d180a8eae77ae726687d566c65d3537848a7c13a8ff6",
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/otazugudy274-ai/Alamofire",
+      "state" : {
+        "revision" : "9799237b84cbd97f80a3ac9b69b30ba65139f752"
+      }
+    }
+  ],
+  "version" : 3
+}

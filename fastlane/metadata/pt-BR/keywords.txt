@@ -1,0 +1,1 @@
+fotos,vídeos,duplicatas,capturas,cofre,senhas,aliases,vazamento,lembretes

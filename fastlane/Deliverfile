@@ -1,0 +1,78 @@
+# Managed by gambling-factory. Runs on Bitrise, so nothing secret lives in the repo:
+# the App Store Connect key arrives through the build's secrets.
+#
+# App Review contact and notes are read from fastlane/metadata/review_information/.
+# Pricing, availability, age rating and App Privacy are applied separately over the
+# App Store Connect API (`gf storeconfig apply`) — deliver must not touch them, because
+# its pricing calls fail against Apple's current API.
+
+require "base64"
+
+app_identifier ENV.fetch("APP_BUNDLE_ID")
+
+api_key({
+  key_id: ENV.fetch("ASC_KEY_ID"),
+  issuer_id: ENV.fetch("ASC_ISSUER_ID"),
+  key: Base64.decode64(ENV.fetch("ASC_API_KEY_CONTENT")),
+})
+
+submission_information({
+  export_compliance_uses_encryption: false,
+  content_rights_contains_third_party_content: false,
+  add_id_info_uses_idfa: false,
+})
+
+# The binary is uploaded by the archive workflow, so deliver only carries the metadata.
+skip_binary_upload true
+skip_screenshots true
+screenshots_path("./fastlane/screenshots")
+# Gem on Bitrise is fastlane 2.232. Its language list has no sl-SI, bn-BD, or
+# the other later App Store codes. The flag only stops the hard fail; the
+# patch below adds those codes so the folders are uploaded.
+ignore_language_directory_validation true
+overwrite_screenshots true
+screenshot_processing_timeout 600
+skip_app_version_update true
+
+submit_for_review true
+automatic_release false
+force true
+run_precheck_before_submit false
+
+# API key auth cannot validate in-app purchases in precheck.
+precheck_include_in_app_purchases false
+
+# Deliverfile is eval'd, so __dir__ is nil and a path next to this file is
+# never found. configfile_path is the Deliverfile fastlane just loaded.
+_here = if respond_to?(:configfile_path) && configfile_path
+  File.dirname(configfile_path.to_s)
+else
+  File.expand_path("fastlane")
+end
+
+# Task locales are an allowlist. Fastlane's languages option alone also loads
+# every metadata directory, so filter its loader before it reads any files.
+require File.expand_path("patch_deliver_locales.rb", _here)
+GFDeliverLocales.load(File.join(_here, "listing-locales.json"))
+languages(GFDeliverLocales.locales)
+
+# fastlane 2.232's list stops before sl-SI. This eval runs after Deliver is
+# loaded and before metadata and screenshots are collected. The ignore flag
+# above does not upload a folder the list does not know.
+if defined?(Deliver::Languages::ALL_LANGUAGES)
+  store_locales = %w[
+    bn-BD gu-IN kn-IN ml-IN mr-IN or-IN pa-IN sl-SI ta-IN te-IN ur-PK
+  ]
+  current = Deliver::Languages::ALL_LANGUAGES
+  missing = store_locales.reject { |code| current.any? { |have| have.to_s.casecmp?(code) } }
+  unless missing.empty?
+    Deliver::Languages.send(:remove_const, :ALL_LANGUAGES)
+    Deliver::Languages.const_set(:ALL_LANGUAGES, current.to_a + missing)
+  end
+end
+
+_qr = File.join(_here, "metadata/review_information/qr-code.png")
+app_review_attachment_file(_qr) if File.file?(_qr)
+
+_patch = File.join(_here, "patch_deliver_screenshots.rb")
+require _patch if File.file?(_patch)

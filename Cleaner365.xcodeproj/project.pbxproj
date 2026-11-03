@@ -1,0 +1,975 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		001DB2E0A5B02DF84963C019 /* CleanupFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8904C0E74695BC0CF66CC1D5 /* CleanupFlowTests.swift */; };
+		026B848C20F36464CB62541C /* SecurityServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DFB0CCEFDF6266A261F3C9 /* SecurityServices.swift */; };
+		02C14D4AEEE3EDD9CECBFF8C /* CleanupScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0533C8A2F30D950E6CCAF4E5 /* CleanupScanner.swift */; };
+		08AB938BABAF0B482BE00764 /* SecurityScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DE5C1E9C70B44DDD5046F /* SecurityScreen.swift */; };
+		0C99B3176F6C5105901FF241 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4A05DCDB5C6CAB4DBD571 /* AppDelegate.swift */; };
+		17D02B0AF15F7FFDFCE3FB98 /* PhoneConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15618D57AB9379C4F1792BA7 /* PhoneConnectivity.swift */; };
+		247AC4F660D5A12550757B75 /* VaultIntegrityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95674862F3FBBEF2E1F7D1A3 /* VaultIntegrityTests.swift */; };
+		32111AED8D4F21C9A53B48BB /* VaultStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFF0200240A1D659615B415 /* VaultStore.swift */; };
+		39510FF441A85AADEA25A449 /* AliasKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AD5D0B406A67C306C2B9B0 /* AliasKey.swift */; };
+		3EE24ACA47DDE31AEE92A30C /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC5BF486B6F04A35DB39CF1 /* APIConfig.swift */; };
+		51E37DA8CF241105950E217A /* SecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8F153128E1BEA41E2A36EF /* SecurityTests.swift */; };
+		5BCA6D461880A53C34FE9354 /* VaultFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936B818DB922D399DA5DDFC3 /* VaultFiles.swift */; };
+		5F4426F5014C18FF1637D806 /* VaultMotion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46AF124C92E0B6E9AA88232E /* VaultMotion.jpg */; };
+		63B6E75E8202F409D4D154FA /* VaultMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E3EA0661E29A2EAF757C73 /* VaultMotion.swift */; };
+		662E05CA3D8DAF6A1AEA6218 /* AliasScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ACE34D4D4A9A2AB80F1B08 /* AliasScreen.swift */; };
+		66B8DDF9B0A2887C65C5AAB8 /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3491EBFBC59768A876AD1C /* Design.swift */; };
+		6D18DAFFB6494D78EA3AE3B3 /* VaultMotion.mov in Resources */ = {isa = PBXBuildFile; fileRef = 2C002A32E0A1108C2B8A7DF8 /* VaultMotion.mov */; };
+		74E93DF4526E33BA1CBED5D7 /* ReviewSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55F00EA1720C938D48DF02 /* ReviewSummary.swift */; };
+		7B056E6C20B5592DB24D7919 /* ReviewSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55F00EA1720C938D48DF02 /* ReviewSummary.swift */; };
+		7E2D14ADCB3BEC79051AF14E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F1C4BE20CFC8FB27D3E7C5A3 /* Alamofire */; };
+		811758FCA43AE641975BB294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 000055CDA15CD96EBA22F697 /* Assets.xcassets */; };
+		8450962DC59F1E852910D685 /* ReviewSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55F00EA1720C938D48DF02 /* ReviewSummary.swift */; };
+		9264EC45BC5A939A9CE4FD83 /* Bin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691CB9ACA85ABED288FB1A2F /* Bin.swift */; };
+		939E421351A19AE79818ADB7 /* PrivacyShield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7906AB8684BD9AF9C85A237F /* PrivacyShield.swift */; };
+		942B52FA2E3E1B2D0AD5D1D1 /* CleanupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5244F079D55013A2DE91 /* CleanupTests.swift */; };
+		96D850EEECAEF4FAF2399280 /* VaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286400DA11D85439BB8C294F /* VaultTests.swift */; };
+		A2D6A9405098D2F3719F2F5D /* VaultMotion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46AF124C92E0B6E9AA88232E /* VaultMotion.jpg */; };
+		A6768049738778BCE95533A9 /* VaultMotion.mov in Resources */ = {isa = PBXBuildFile; fileRef = 2C002A32E0A1108C2B8A7DF8 /* VaultMotion.mov */; };
+		AA76FEB0FA22AB405E9602C9 /* RoundTripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFD8A8325E30B295848C450 /* RoundTripTests.swift */; };
+		AE403D48015AB214C30B9273 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3B2ED9542FAF662824F9D3 /* Library.swift */; };
+		AF4A6ECDECC1F236A8695BCC /* EncryptedArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02756EB812B310F47D3B45A9 /* EncryptedArchive.swift */; };
+		C124A596293D8A3D93F83B3B /* SecurityFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9DEB42F0263E9F3EAFE57A /* SecurityFlowTests.swift */; };
+		C2B38D7A5F307847036BCEEE /* Cleaner365Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BD0378F2A406D486B544F0DB /* Cleaner365Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C785A885DBB88178B12359E7 /* VaultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8571DD16500F6FA847F03F /* VaultScreen.swift */; };
+		CC64807DAD58449B3ABF631F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22750DD843C98D3C9D2C06AC /* Assets.xcassets */; };
+		DAAB31293EFA543BDD7B7691 /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B087414AFB269E5A59F91BD6 /* Reminders.swift */; };
+		DDB21F0CB25D122B82CA93A2 /* Cleaner365Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 956BB5E714A89A6A2B612F87 /* Cleaner365Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E5ECDD42B64A63DD83BD70D8 /* WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D8D31E2BBD4445544A87D9 /* WatchApp.swift */; };
+		EB11D814D2EA16B411A28989 /* CompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72259A4FC95E87CC76EFB887 /* CompanionTests.swift */; };
+		EE7C126FB80B95DF9CE21044 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242696FEF9EC90EC30C004C /* Review.swift */; };
+		F380F3278AA290CCC17EAAF0 /* CleanupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979B9FE9BA63EFD3EC2FA841 /* CleanupScreen.swift */; };
+		F9086262FF11763066558F12 /* ProgressWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411D2262EBCFE32B58100FFA /* ProgressWidget.swift */; };
+		FE27CAFD715F38AEE78F8B20 /* Cleaner365App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9F9BFCFFB115072E15A118 /* Cleaner365App.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		665A7B12C96E19E48411D4E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFB5C3AFE773A2951A4AFD56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEBEC1C9AF816523478B4EF9;
+			remoteInfo = Cleaner365;
+		};
+		6B3326417F8CEA4A03EFC917 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFB5C3AFE773A2951A4AFD56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAB6B49A1CDE26DF592E4ADD;
+			remoteInfo = Cleaner365Widget;
+		};
+		F848764AAC722169BDA44D67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFB5C3AFE773A2951A4AFD56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA6300B74D7AFE718A045D39;
+			remoteInfo = Cleaner365Watch;
+		};
+		FCF98CA4C99A0C97A3110800 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFB5C3AFE773A2951A4AFD56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEBEC1C9AF816523478B4EF9;
+			remoteInfo = Cleaner365;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EE685DD0CB00E61D78BA25A6 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C2B38D7A5F307847036BCEEE /* Cleaner365Widget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F929DBA8ABA637C08478E386 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				DDB21F0CB25D122B82CA93A2 /* Cleaner365Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		000055CDA15CD96EBA22F697 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		02756EB812B310F47D3B45A9 /* EncryptedArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedArchive.swift; sourceTree = "<group>"; };
+		0533C8A2F30D950E6CCAF4E5 /* CleanupScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupScanner.swift; sourceTree = "<group>"; };
+		0E3B2ED9542FAF662824F9D3 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		13CE5C20AC12814381E7363A /* Cleaner365.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cleaner365.entitlements; sourceTree = "<group>"; };
+		15618D57AB9379C4F1792BA7 /* PhoneConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneConnectivity.swift; sourceTree = "<group>"; };
+		1FC2B193DA0C3E40F0C15A7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		22750DD843C98D3C9D2C06AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		25DFB0CCEFDF6266A261F3C9 /* SecurityServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityServices.swift; sourceTree = "<group>"; };
+		286400DA11D85439BB8C294F /* VaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultTests.swift; sourceTree = "<group>"; };
+		2BA5502AD9C93779A1870022 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2C002A32E0A1108C2B8A7DF8 /* VaultMotion.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = VaultMotion.mov; sourceTree = "<group>"; };
+		30ACE34D4D4A9A2AB80F1B08 /* AliasScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasScreen.swift; sourceTree = "<group>"; };
+		393B5DED7B380DD82904DF65 /* Cleaner365.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Cleaner365.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CCCA78CFB724F019794BF9C /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widget.entitlements; sourceTree = "<group>"; };
+		3D0811680251C062FEAE9297 /* Cleaner365Tests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = Cleaner365Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		411D2262EBCFE32B58100FFA /* ProgressWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressWidget.swift; sourceTree = "<group>"; };
+		42C3AFBC3D2903C09933FA36 /* Cleaner365UITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = Cleaner365UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		46AF124C92E0B6E9AA88232E /* VaultMotion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = VaultMotion.jpg; sourceTree = "<group>"; };
+		4DFD8A8325E30B295848C450 /* RoundTripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTripTests.swift; sourceTree = "<group>"; };
+		58D8D31E2BBD4445544A87D9 /* WatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchApp.swift; sourceTree = "<group>"; };
+		691CB9ACA85ABED288FB1A2F /* Bin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bin.swift; sourceTree = "<group>"; };
+		6E55F00EA1720C938D48DF02 /* ReviewSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSummary.swift; sourceTree = "<group>"; };
+		72259A4FC95E87CC76EFB887 /* CompanionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionTests.swift; sourceTree = "<group>"; };
+		7906AB8684BD9AF9C85A237F /* PrivacyShield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyShield.swift; sourceTree = "<group>"; };
+		885DE5C1E9C70B44DDD5046F /* SecurityScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityScreen.swift; sourceTree = "<group>"; };
+		8904C0E74695BC0CF66CC1D5 /* CleanupFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupFlowTests.swift; sourceTree = "<group>"; };
+		936B818DB922D399DA5DDFC3 /* VaultFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultFiles.swift; sourceTree = "<group>"; };
+		95674862F3FBBEF2E1F7D1A3 /* VaultIntegrityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultIntegrityTests.swift; sourceTree = "<group>"; };
+		956BB5E714A89A6A2B612F87 /* Cleaner365Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleaner365Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96AD5D0B406A67C306C2B9B0 /* AliasKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasKey.swift; sourceTree = "<group>"; };
+		979B9FE9BA63EFD3EC2FA841 /* CleanupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupScreen.swift; sourceTree = "<group>"; };
+		9E8571DD16500F6FA847F03F /* VaultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultScreen.swift; sourceTree = "<group>"; };
+		9F9DEB42F0263E9F3EAFE57A /* SecurityFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityFlowTests.swift; sourceTree = "<group>"; };
+		AEC5BF486B6F04A35DB39CF1 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+		B087414AFB269E5A59F91BD6 /* Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
+		BD0378F2A406D486B544F0DB /* Cleaner365Widget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = Cleaner365Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D24C5244F079D55013A2DE91 /* CleanupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupTests.swift; sourceTree = "<group>"; };
+		DBB4A05DCDB5C6CAB4DBD571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DBFF0200240A1D659615B415 /* VaultStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultStore.swift; sourceTree = "<group>"; };
+		DC8F153128E1BEA41E2A36EF /* SecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityTests.swift; sourceTree = "<group>"; };
+		E242696FEF9EC90EC30C004C /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		ED3491EBFBC59768A876AD1C /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
+		ED9F9BFCFFB115072E15A118 /* Cleaner365App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cleaner365App.swift; sourceTree = "<group>"; };
+		F5E3EA0661E29A2EAF757C73 /* VaultMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultMotion.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8C45F69899BDC27D5D3D93B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E2D14ADCB3BEC79051AF14E /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		011A40B07B2624676172C0AF /* Vault */ = {
+			isa = PBXGroup;
+			children = (
+				02756EB812B310F47D3B45A9 /* EncryptedArchive.swift */,
+				7906AB8684BD9AF9C85A237F /* PrivacyShield.swift */,
+				936B818DB922D399DA5DDFC3 /* VaultFiles.swift */,
+				F5E3EA0661E29A2EAF757C73 /* VaultMotion.swift */,
+				9E8571DD16500F6FA847F03F /* VaultScreen.swift */,
+				DBFF0200240A1D659615B415 /* VaultStore.swift */,
+			);
+			path = Vault;
+			sourceTree = "<group>";
+		};
+		01CBA80B02077EB91A2B7282 /* TestFixtures */ = {
+			isa = PBXGroup;
+			children = (
+				46AF124C92E0B6E9AA88232E /* VaultMotion.jpg */,
+				2C002A32E0A1108C2B8A7DF8 /* VaultMotion.mov */,
+			);
+			path = TestFixtures;
+			sourceTree = "<group>";
+		};
+		284C5EC138567B6827395BB0 /* Cleanup */ = {
+			isa = PBXGroup;
+			children = (
+				0533C8A2F30D950E6CCAF4E5 /* CleanupScanner.swift */,
+				979B9FE9BA63EFD3EC2FA841 /* CleanupScreen.swift */,
+			);
+			path = Cleanup;
+			sourceTree = "<group>";
+		};
+		5B1FD756D3BF995F66E11FCB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				393B5DED7B380DD82904DF65 /* Cleaner365.app */,
+				3D0811680251C062FEAE9297 /* Cleaner365Tests.xctest */,
+				42C3AFBC3D2903C09933FA36 /* Cleaner365UITests.xctest */,
+				956BB5E714A89A6A2B612F87 /* Cleaner365Watch.app */,
+				BD0378F2A406D486B544F0DB /* Cleaner365Widget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6049D8E55D6092E477684C7F /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				2BA5502AD9C93779A1870022 /* Info.plist */,
+				411D2262EBCFE32B58100FFA /* ProgressWidget.swift */,
+				3CCCA78CFB724F019794BF9C /* Widget.entitlements */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		613C13931AEEF7234F1BE618 = {
+			isa = PBXGroup;
+			children = (
+				CDD886B110EC82F0DBE5358F /* Cleaner365 */,
+				D88B3CC33F5A0E0E668EA2E2 /* Cleaner365Tests */,
+				67F678182000723DB9C5CA75 /* Cleaner365UITests */,
+				6A24A243600E04BAC51AEDBD /* Shared */,
+				01CBA80B02077EB91A2B7282 /* TestFixtures */,
+				E2F95FA7A8C5692779AF28B5 /* Watch */,
+				6049D8E55D6092E477684C7F /* Widget */,
+				5B1FD756D3BF995F66E11FCB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		67F678182000723DB9C5CA75 /* Cleaner365UITests */ = {
+			isa = PBXGroup;
+			children = (
+				8904C0E74695BC0CF66CC1D5 /* CleanupFlowTests.swift */,
+				72259A4FC95E87CC76EFB887 /* CompanionTests.swift */,
+				4DFD8A8325E30B295848C450 /* RoundTripTests.swift */,
+				9F9DEB42F0263E9F3EAFE57A /* SecurityFlowTests.swift */,
+				286400DA11D85439BB8C294F /* VaultTests.swift */,
+			);
+			path = Cleaner365UITests;
+			sourceTree = "<group>";
+		};
+		6A24A243600E04BAC51AEDBD /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				6E55F00EA1720C938D48DF02 /* ReviewSummary.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		A367394CDB1365EDBB69B61A /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				96AD5D0B406A67C306C2B9B0 /* AliasKey.swift */,
+				30ACE34D4D4A9A2AB80F1B08 /* AliasScreen.swift */,
+				885DE5C1E9C70B44DDD5046F /* SecurityScreen.swift */,
+				25DFB0CCEFDF6266A261F3C9 /* SecurityServices.swift */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		CDD886B110EC82F0DBE5358F /* Cleaner365 */ = {
+			isa = PBXGroup;
+			children = (
+				AEC5BF486B6F04A35DB39CF1 /* APIConfig.swift */,
+				DBB4A05DCDB5C6CAB4DBD571 /* AppDelegate.swift */,
+				000055CDA15CD96EBA22F697 /* Assets.xcassets */,
+				691CB9ACA85ABED288FB1A2F /* Bin.swift */,
+				13CE5C20AC12814381E7363A /* Cleaner365.entitlements */,
+				ED9F9BFCFFB115072E15A118 /* Cleaner365App.swift */,
+				ED3491EBFBC59768A876AD1C /* Design.swift */,
+				1FC2B193DA0C3E40F0C15A7C /* Info.plist */,
+				0E3B2ED9542FAF662824F9D3 /* Library.swift */,
+				15618D57AB9379C4F1792BA7 /* PhoneConnectivity.swift */,
+				B087414AFB269E5A59F91BD6 /* Reminders.swift */,
+				E242696FEF9EC90EC30C004C /* Review.swift */,
+				284C5EC138567B6827395BB0 /* Cleanup */,
+				A367394CDB1365EDBB69B61A /* Security */,
+				011A40B07B2624676172C0AF /* Vault */,
+			);
+			path = Cleaner365;
+			sourceTree = "<group>";
+		};
+		D88B3CC33F5A0E0E668EA2E2 /* Cleaner365Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D24C5244F079D55013A2DE91 /* CleanupTests.swift */,
+				DC8F153128E1BEA41E2A36EF /* SecurityTests.swift */,
+				95674862F3FBBEF2E1F7D1A3 /* VaultIntegrityTests.swift */,
+			);
+			path = Cleaner365Tests;
+			sourceTree = "<group>";
+		};
+		E2F95FA7A8C5692779AF28B5 /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				22750DD843C98D3C9D2C06AC /* Assets.xcassets */,
+				58D8D31E2BBD4445544A87D9 /* WatchApp.swift */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		75DE010AD71171967F1EBBE6 /* Cleaner365Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFE8211D471961B16FC557E6 /* Build configuration list for PBXNativeTarget "Cleaner365Tests" */;
+			buildPhases = (
+				F4E14495C5354E448EE15BA2 /* Sources */,
+				DF59EB147E466C7AEEE404B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1EAC403A2CDD23257FE66B0 /* PBXTargetDependency */,
+			);
+			name = Cleaner365Tests;
+			packageProductDependencies = (
+			);
+			productName = Cleaner365Tests;
+			productReference = 3D0811680251C062FEAE9297 /* Cleaner365Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AA6300B74D7AFE718A045D39 /* Cleaner365Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A90914305F7E607578D3AA14 /* Build configuration list for PBXNativeTarget "Cleaner365Watch" */;
+			buildPhases = (
+				D015096BF732920C18CAD73B /* Sources */,
+				BDABB878A23B3B2BB3D1D297 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cleaner365Watch;
+			packageProductDependencies = (
+			);
+			productName = Cleaner365Watch;
+			productReference = 956BB5E714A89A6A2B612F87 /* Cleaner365Watch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BBADB7AF0EFC4001B90EBD5B /* Cleaner365UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 598B36F4E2B20F0DFEE91DB0 /* Build configuration list for PBXNativeTarget "Cleaner365UITests" */;
+			buildPhases = (
+				156C28F4A0340CB50434604C /* Sources */,
+				5028D980E081CCF1645BED0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96BEFBD7DD8D174668EBA5D3 /* PBXTargetDependency */,
+			);
+			name = Cleaner365UITests;
+			packageProductDependencies = (
+			);
+			productName = Cleaner365UITests;
+			productReference = 42C3AFBC3D2903C09933FA36 /* Cleaner365UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		FAB6B49A1CDE26DF592E4ADD /* Cleaner365Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71C96918D053BEA972991339 /* Build configuration list for PBXNativeTarget "Cleaner365Widget" */;
+			buildPhases = (
+				88A03E2465CD0D23B481B229 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cleaner365Widget;
+			packageProductDependencies = (
+			);
+			productName = Cleaner365Widget;
+			productReference = BD0378F2A406D486B544F0DB /* Cleaner365Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		FEBEC1C9AF816523478B4EF9 /* Cleaner365 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 502E1C96BC2E3C7FA0AAA26E /* Build configuration list for PBXNativeTarget "Cleaner365" */;
+			buildPhases = (
+				A612611ACDA48A9F417815D7 /* Sources */,
+				83CDB7E3CE85F17E06900620 /* Resources */,
+				8C45F69899BDC27D5D3D93B0 /* Frameworks */,
+				EE685DD0CB00E61D78BA25A6 /* Embed Foundation Extensions */,
+				F929DBA8ABA637C08478E386 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3157EE7E5AEAD698F213214B /* PBXTargetDependency */,
+				2EA8869D18EF88D5953E8E12 /* PBXTargetDependency */,
+			);
+			name = Cleaner365;
+			packageProductDependencies = (
+				F1C4BE20CFC8FB27D3E7C5A3 /* Alamofire */,
+			);
+			productName = Cleaner365;
+			productReference = 393B5DED7B380DD82904DF65 /* Cleaner365.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFB5C3AFE773A2951A4AFD56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					BBADB7AF0EFC4001B90EBD5B = {
+						TestTargetID = FEBEC1C9AF816523478B4EF9;
+					};
+				};
+			};
+			buildConfigurationList = 6F64B01EAD9E434B1A340865 /* Build configuration list for PBXProject "Cleaner365" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 613C13931AEEF7234F1BE618;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F1215D1EBBC2CEF37F39E681 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5B1FD756D3BF995F66E11FCB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FEBEC1C9AF816523478B4EF9 /* Cleaner365 */,
+				FAB6B49A1CDE26DF592E4ADD /* Cleaner365Widget */,
+				AA6300B74D7AFE718A045D39 /* Cleaner365Watch */,
+				75DE010AD71171967F1EBBE6 /* Cleaner365Tests */,
+				BBADB7AF0EFC4001B90EBD5B /* Cleaner365UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5028D980E081CCF1645BED0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F4426F5014C18FF1637D806 /* VaultMotion.jpg in Resources */,
+				6D18DAFFB6494D78EA3AE3B3 /* VaultMotion.mov in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83CDB7E3CE85F17E06900620 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				811758FCA43AE641975BB294 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDABB878A23B3B2BB3D1D297 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC64807DAD58449B3ABF631F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF59EB147E466C7AEEE404B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2D6A9405098D2F3719F2F5D /* VaultMotion.jpg in Resources */,
+				A6768049738778BCE95533A9 /* VaultMotion.mov in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		156C28F4A0340CB50434604C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				001DB2E0A5B02DF84963C019 /* CleanupFlowTests.swift in Sources */,
+				EB11D814D2EA16B411A28989 /* CompanionTests.swift in Sources */,
+				AA76FEB0FA22AB405E9602C9 /* RoundTripTests.swift in Sources */,
+				C124A596293D8A3D93F83B3B /* SecurityFlowTests.swift in Sources */,
+				96D850EEECAEF4FAF2399280 /* VaultTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88A03E2465CD0D23B481B229 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9086262FF11763066558F12 /* ProgressWidget.swift in Sources */,
+				8450962DC59F1E852910D685 /* ReviewSummary.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A612611ACDA48A9F417815D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EE24ACA47DDE31AEE92A30C /* APIConfig.swift in Sources */,
+				39510FF441A85AADEA25A449 /* AliasKey.swift in Sources */,
+				662E05CA3D8DAF6A1AEA6218 /* AliasScreen.swift in Sources */,
+				0C99B3176F6C5105901FF241 /* AppDelegate.swift in Sources */,
+				9264EC45BC5A939A9CE4FD83 /* Bin.swift in Sources */,
+				FE27CAFD715F38AEE78F8B20 /* Cleaner365App.swift in Sources */,
+				02C14D4AEEE3EDD9CECBFF8C /* CleanupScanner.swift in Sources */,
+				F380F3278AA290CCC17EAAF0 /* CleanupScreen.swift in Sources */,
+				66B8DDF9B0A2887C65C5AAB8 /* Design.swift in Sources */,
+				AF4A6ECDECC1F236A8695BCC /* EncryptedArchive.swift in Sources */,
+				AE403D48015AB214C30B9273 /* Library.swift in Sources */,
+				17D02B0AF15F7FFDFCE3FB98 /* PhoneConnectivity.swift in Sources */,
+				939E421351A19AE79818ADB7 /* PrivacyShield.swift in Sources */,
+				DAAB31293EFA543BDD7B7691 /* Reminders.swift in Sources */,
+				EE7C126FB80B95DF9CE21044 /* Review.swift in Sources */,
+				7B056E6C20B5592DB24D7919 /* ReviewSummary.swift in Sources */,
+				08AB938BABAF0B482BE00764 /* SecurityScreen.swift in Sources */,
+				026B848C20F36464CB62541C /* SecurityServices.swift in Sources */,
+				5BCA6D461880A53C34FE9354 /* VaultFiles.swift in Sources */,
+				63B6E75E8202F409D4D154FA /* VaultMotion.swift in Sources */,
+				C785A885DBB88178B12359E7 /* VaultScreen.swift in Sources */,
+				32111AED8D4F21C9A53B48BB /* VaultStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D015096BF732920C18CAD73B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74E93DF4526E33BA1CBED5D7 /* ReviewSummary.swift in Sources */,
+				E5ECDD42B64A63DD83BD70D8 /* WatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4E14495C5354E448EE15BA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				942B52FA2E3E1B2D0AD5D1D1 /* CleanupTests.swift in Sources */,
+				51E37DA8CF241105950E217A /* SecurityTests.swift in Sources */,
+				247AC4F660D5A12550757B75 /* VaultIntegrityTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2EA8869D18EF88D5953E8E12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA6300B74D7AFE718A045D39 /* Cleaner365Watch */;
+			targetProxy = F848764AAC722169BDA44D67 /* PBXContainerItemProxy */;
+		};
+		3157EE7E5AEAD698F213214B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAB6B49A1CDE26DF592E4ADD /* Cleaner365Widget */;
+			targetProxy = 6B3326417F8CEA4A03EFC917 /* PBXContainerItemProxy */;
+		};
+		96BEFBD7DD8D174668EBA5D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEBEC1C9AF816523478B4EF9 /* Cleaner365 */;
+			targetProxy = 665A7B12C96E19E48411D4E6 /* PBXContainerItemProxy */;
+		};
+		A1EAC403A2CDD23257FE66B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEBEC1C9AF816523478B4EF9 /* Cleaner365 */;
+			targetProxy = FCF98CA4C99A0C97A3110800 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		07F3605ACE84CD71D8EF7E2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Season progress";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cleaner365.iphone.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		2170934122A01E1D25229052 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cleaner365.iphone.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cleaner365;
+			};
+			name = Debug;
+		};
+		64A874E7DF5426462F1FCFA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		666F2153A60CE9DD16162B3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cleaner365.iphone.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cleaner365;
+			};
+			name = Release;
+		};
+		7631C930AC9B78CEBA39FE9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Cleaner365/Cleaner365.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Cleaner365/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cleaner 365";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use Face ID to open your private photo vault.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Restore selected photos and Live Photos from your vault.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Review photos and videos. You choose which originals to delete from Photos.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cleaner365.iphone;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		90A792369E98039BFC83D92E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+		9AA0ADAD19CDF3579A6CB480 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cleaner365.iphone.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cleaner365.app/Cleaner365";
+			};
+			name = Release;
+		};
+		A3A8704E8676AC8F191F681C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cleaner365.iphone.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cleaner365.app/Cleaner365";
+			};
+			name = Debug;
+		};
+		A4B032C97897E6B144FF5646 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cleaner 365";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_WKApplication = YES;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = app.cleaner365.iphone;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = app.cleaner365.iphone.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		CB19261D1A410AF9F9AE8A26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cleaner 365";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_WKApplication = YES;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = app.cleaner365.iphone;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = app.cleaner365.iphone.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		D536454673922FD3BF25746B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Season progress";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cleaner365.iphone.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E2CFE56930C2D13A0AB49C28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Cleaner365/Cleaner365.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Cleaner365/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cleaner 365";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use Face ID to open your private photo vault.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Restore selected photos and Live Photos from your vault.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Review photos and videos. You choose which originals to delete from Photos.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cleaner365.iphone;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		502E1C96BC2E3C7FA0AAA26E /* Build configuration list for PBXNativeTarget "Cleaner365" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7631C930AC9B78CEBA39FE9C /* Debug */,
+				E2CFE56930C2D13A0AB49C28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		598B36F4E2B20F0DFEE91DB0 /* Build configuration list for PBXNativeTarget "Cleaner365UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2170934122A01E1D25229052 /* Debug */,
+				666F2153A60CE9DD16162B3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6F64B01EAD9E434B1A340865 /* Build configuration list for PBXProject "Cleaner365" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64A874E7DF5426462F1FCFA7 /* Debug */,
+				90A792369E98039BFC83D92E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		71C96918D053BEA972991339 /* Build configuration list for PBXNativeTarget "Cleaner365Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D536454673922FD3BF25746B /* Debug */,
+				07F3605ACE84CD71D8EF7E2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A90914305F7E607578D3AA14 /* Build configuration list for PBXNativeTarget "Cleaner365Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4B032C97897E6B144FF5646 /* Debug */,
+				CB19261D1A410AF9F9AE8A26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BFE8211D471961B16FC557E6 /* Build configuration list for PBXNativeTarget "Cleaner365Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3A8704E8676AC8F191F681C /* Debug */,
+				9AA0ADAD19CDF3579A6CB480 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F1215D1EBBC2CEF37F39E681 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/otazugudy274-ai/Alamofire";
+			requirement = {
+				kind = revision;
+				revision = 9799237b84cbd97f80a3ac9b69b30ba65139f752;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F1C4BE20CFC8FB27D3E7C5A3 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1215D1EBBC2CEF37F39E681 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = EFB5C3AFE773A2951A4AFD56 /* Project object */;
+}
