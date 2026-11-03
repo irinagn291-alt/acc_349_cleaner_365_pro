@@ -25,6 +25,7 @@
 		662E05CA3D8DAF6A1AEA6218 /* AliasScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ACE34D4D4A9A2AB80F1B08 /* AliasScreen.swift */; };
 		66B8DDF9B0A2887C65C5AAB8 /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3491EBFBC59768A876AD1C /* Design.swift */; };
 		6D18DAFFB6494D78EA3AE3B3 /* VaultMotion.mov in Resources */ = {isa = PBXBuildFile; fileRef = 2C002A32E0A1108C2B8A7DF8 /* VaultMotion.mov */; };
+		7063B5B2D580C06B570B6AED /* StoreCaptureLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12010B13794F3ABF1E072AB6 /* StoreCaptureLaunch.swift */; };
 		74E93DF4526E33BA1CBED5D7 /* ReviewSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55F00EA1720C938D48DF02 /* ReviewSummary.swift */; };
 		7B056E6C20B5592DB24D7919 /* ReviewSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55F00EA1720C938D48DF02 /* ReviewSummary.swift */; };
 		7E2D14ADCB3BEC79051AF14E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F1C4BE20CFC8FB27D3E7C5A3 /* Alamofire */; };
@@ -37,6 +38,7 @@
 		A2D6A9405098D2F3719F2F5D /* VaultMotion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46AF124C92E0B6E9AA88232E /* VaultMotion.jpg */; };
 		A6768049738778BCE95533A9 /* VaultMotion.mov in Resources */ = {isa = PBXBuildFile; fileRef = 2C002A32E0A1108C2B8A7DF8 /* VaultMotion.mov */; };
 		AA76FEB0FA22AB405E9602C9 /* RoundTripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFD8A8325E30B295848C450 /* RoundTripTests.swift */; };
+		AE22E147C81146B92249C2F8 /* StoreCaptureLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12010B13794F3ABF1E072AB6 /* StoreCaptureLaunch.swift */; };
 		AE403D48015AB214C30B9273 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3B2ED9542FAF662824F9D3 /* Library.swift */; };
 		AF4A6ECDECC1F236A8695BCC /* EncryptedArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02756EB812B310F47D3B45A9 /* EncryptedArchive.swift */; };
 		C124A596293D8A3D93F83B3B /* SecurityFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9DEB42F0263E9F3EAFE57A /* SecurityFlowTests.swift */; };
@@ -45,12 +47,14 @@
 		CC64807DAD58449B3ABF631F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22750DD843C98D3C9D2C06AC /* Assets.xcassets */; };
 		DAAB31293EFA543BDD7B7691 /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B087414AFB269E5A59F91BD6 /* Reminders.swift */; };
 		DDB21F0CB25D122B82CA93A2 /* Cleaner365Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 956BB5E714A89A6A2B612F87 /* Cleaner365Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E248A199A7F150D87646E0AF /* StoreCaptureLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12010B13794F3ABF1E072AB6 /* StoreCaptureLaunch.swift */; };
 		E5ECDD42B64A63DD83BD70D8 /* WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D8D31E2BBD4445544A87D9 /* WatchApp.swift */; };
 		EB11D814D2EA16B411A28989 /* CompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72259A4FC95E87CC76EFB887 /* CompanionTests.swift */; };
 		EE7C126FB80B95DF9CE21044 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242696FEF9EC90EC30C004C /* Review.swift */; };
 		F380F3278AA290CCC17EAAF0 /* CleanupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979B9FE9BA63EFD3EC2FA841 /* CleanupScreen.swift */; };
 		F9086262FF11763066558F12 /* ProgressWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411D2262EBCFE32B58100FFA /* ProgressWidget.swift */; };
 		FE27CAFD715F38AEE78F8B20 /* Cleaner365App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9F9BFCFFB115072E15A118 /* Cleaner365App.swift */; };
+		FFA8CF7073CBCE86A230676A /* StoreCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62757262B20A2891F862F1 /* StoreCapture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +118,7 @@
 		02756EB812B310F47D3B45A9 /* EncryptedArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedArchive.swift; sourceTree = "<group>"; };
 		0533C8A2F30D950E6CCAF4E5 /* CleanupScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupScanner.swift; sourceTree = "<group>"; };
 		0E3B2ED9542FAF662824F9D3 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		12010B13794F3ABF1E072AB6 /* StoreCaptureLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCaptureLaunch.swift; sourceTree = "<group>"; };
 		13CE5C20AC12814381E7363A /* Cleaner365.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cleaner365.entitlements; sourceTree = "<group>"; };
 		15618D57AB9379C4F1792BA7 /* PhoneConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneConnectivity.swift; sourceTree = "<group>"; };
 		1FC2B193DA0C3E40F0C15A7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -156,6 +161,7 @@
 		ED3491EBFBC59768A876AD1C /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		ED9F9BFCFFB115072E15A118 /* Cleaner365App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cleaner365App.swift; sourceTree = "<group>"; };
 		F5E3EA0661E29A2EAF757C73 /* VaultMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultMotion.swift; sourceTree = "<group>"; };
+		FD62757262B20A2891F862F1 /* StoreCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCapture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				6E55F00EA1720C938D48DF02 /* ReviewSummary.swift */,
+				12010B13794F3ABF1E072AB6 /* StoreCaptureLaunch.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -292,6 +299,7 @@
 				15618D57AB9379C4F1792BA7 /* PhoneConnectivity.swift */,
 				B087414AFB269E5A59F91BD6 /* Reminders.swift */,
 				E242696FEF9EC90EC30C004C /* Review.swift */,
+				FD62757262B20A2891F862F1 /* StoreCapture.swift */,
 				284C5EC138567B6827395BB0 /* Cleanup */,
 				A367394CDB1365EDBB69B61A /* Security */,
 				011A40B07B2624676172C0AF /* Vault */,
@@ -515,6 +523,7 @@
 			files = (
 				F9086262FF11763066558F12 /* ProgressWidget.swift in Sources */,
 				8450962DC59F1E852910D685 /* ReviewSummary.swift in Sources */,
+				E248A199A7F150D87646E0AF /* StoreCaptureLaunch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +549,8 @@
 				7B056E6C20B5592DB24D7919 /* ReviewSummary.swift in Sources */,
 				08AB938BABAF0B482BE00764 /* SecurityScreen.swift in Sources */,
 				026B848C20F36464CB62541C /* SecurityServices.swift in Sources */,
+				FFA8CF7073CBCE86A230676A /* StoreCapture.swift in Sources */,
+				7063B5B2D580C06B570B6AED /* StoreCaptureLaunch.swift in Sources */,
 				5BCA6D461880A53C34FE9354 /* VaultFiles.swift in Sources */,
 				63B6E75E8202F409D4D154FA /* VaultMotion.swift in Sources */,
 				C785A885DBB88178B12359E7 /* VaultScreen.swift in Sources */,
@@ -552,6 +563,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74E93DF4526E33BA1CBED5D7 /* ReviewSummary.swift in Sources */,
+				AE22E147C81146B92249C2F8 /* StoreCaptureLaunch.swift in Sources */,
 				E5ECDD42B64A63DD83BD70D8 /* WatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,7 +619,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = app.cleaner365.iphone.widget;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -690,7 +702,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WATCHOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Debug;
@@ -732,7 +744,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.cleaner365.iphone;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -792,7 +804,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WATCHOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Release;
@@ -880,7 +892,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = app.cleaner365.iphone.widget;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -905,7 +917,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.cleaner365.iphone;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
