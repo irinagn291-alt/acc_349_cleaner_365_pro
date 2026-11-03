@@ -42,6 +42,7 @@ enum CleanupScanner {
                     }
                 } catch {
                     try Task.checkCancellation()
+                    #if compiler(>=6.4)
                     if compare, asset.mediaType == .video, #available(iOS 27, *) {
                         let resources = PHAssetResource.assetResources(for: asset)
                         let sizes = resources.compactMap(\.dataSize)
@@ -50,6 +51,7 @@ enum CleanupScanner {
                             if bytes >= largeVideoBytes { result.largeVideos.append((asset.localIdentifier, bytes)) }
                         }
                     }
+                    #endif
                     result.unavailable.insert(asset.localIdentifier)
                 }
             }
@@ -66,10 +68,13 @@ enum CleanupScanner {
         var size: Int64 = 0
         for resource in resources {
             try Task.checkCancellation()
+            // dataSize is declared starting with the iOS 27 SDK (Xcode 27).
+            #if compiler(>=6.4)
             if !hash, #available(iOS 27, *), let bytes = resource.dataSize {
                 size += Int64(bytes)
                 continue
             }
+            #endif
             let stream = ContentRead()
             let result = try await stream.read(resource, hash: hash, cloud: cloud)
             guard result.bytes > 0 else { throw ScanError.unavailable }

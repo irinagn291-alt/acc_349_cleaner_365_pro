@@ -94,6 +94,8 @@ private struct SelectedVolume: View {
         }
         .task(id: assets) {
             size = nil
+            // dataSize is declared starting with the iOS 27 SDK (Xcode 27).
+            #if compiler(>=6.4)
             guard #available(iOS 27, *) else { return }
             let selected = assets
             let bytes = await Task.detached(priority: .utility) { () -> Int64? in
@@ -109,6 +111,7 @@ private struct SelectedVolume: View {
                 return total
             }.value
             if !Task.isCancelled, let bytes { size = bytes.formatted(.byteCount(style: .file).locale(Locale(identifier: "en_US"))) }
+            #endif
         }
     }
 }
